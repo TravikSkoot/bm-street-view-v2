@@ -1,5 +1,8 @@
 # BM Street View V2
 
+<img src="assets/images/bm-360-logo.png" height=250>
+
+## Über das Projekt
 BM Street View V2 ist eine interaktive 360°-Webanwendung zur Erkundung von Räumen in VR. Sie bietet eine benutzerfreundliche Oberfläche mit Infopunkten, VR-Unterstützung und einer verbesserten Ladezeit, um den Nutzern ein immersives Erlebnis zu bieten.
 
 ## Projektübersicht
@@ -73,3 +76,7 @@ Weitere Informationen findest du in der [LICENSE](LICENSE.md)-Datei oder unter [
 ---
 
 Vielen Dank an alle Mitwirkenden, die dieses Projekt möglich gemacht haben!
+<br><br>
+<img src="assets/images/bm-360-logo.png" height=25>
+<br>
+Copyright © 2024 Thiemo Küpper
