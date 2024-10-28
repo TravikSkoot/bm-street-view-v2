@@ -1,6 +1,15 @@
+/*
+ * Copyright © 2024 Thiemo Küpper
+ * Project: bm-street-view-v2
+ * Author: Thiemo Küpper
+ *
+ * Filename: index.js
+ * Created: 28.10.24, 02:54
+ */
+
 
 // Szene, Kamera und Renderer erstellen
-import * as THREE from './node_modules/three/build/three.module.js';
+import * as THREE from 'three';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -18,10 +27,10 @@ camera.position.z = 5;
 
 // Animationsschleife
 function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
+	requestAnimationFrame(animate);
+	cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
+	renderer.render(scene, camera);
 }
 
 animate();
