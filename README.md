@@ -1,4 +1,3 @@
-inst
 # BM Street View V2
 
 BM Street View V2 ist eine interaktive 360°-Webanwendung zur Erkundung von Räumen in VR. Sie bietet eine benutzerfreundliche Oberfläche mit Infopunkten, VR-Unterstützung und einer verbesserten Ladezeit, um den Nutzern ein immersives Erlebnis zu bieten.
