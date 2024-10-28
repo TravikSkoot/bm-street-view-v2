@@ -1,15 +1,30 @@
 {
   "name": "bm-street-view-v2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ein interaktiver 360°-Rundgang durch die Schulräume, mit VR-Unterstützung und informativen Infopoints.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server ./ -c-1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravikSkoot/bm-street-view-v2.git"
+  },
+  "keywords": [
+    "360-view",
+    "threejs",
+    "VR",
+    "school",
+    "interactive",
+    "bm-street-view"
+  ],
+  "author": "Thiemo Küpper",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/TravikSkoot/bm-street-view-v2/issues"
+  },
+  "homepage": "https://github.com/TravikSkoot/bm-street-view-v2#readme",
   "dependencies": {
     "three": "^0.169.0"
   },
