@@ -29,7 +29,7 @@
         '/assets/images/bibliothek1.jpg','/assets/images/bibliothek2.jpg','/assets/images/bibliothek3.jpg','/assets/images/bibliothek4.jpg','/assets/images/bibliothek5.jpg',
         '/assets/images/dach1.jpg','/assets/images/dach2.jpg','/assets/images/dach3.jpg',
         '/assets/images/tonstudio1.jpg','/assets/images/tonstudio2.jpg',
-        '/assets/images/fachraum.jpg','/assets/images/computerraum.jpg','/assets/images/greenscreen.jpg'
+        '/assets/images/fachraum.jpg','/assets/images/computerraum.jpg','/assets/images/computerraum2.jpg','/assets/images/greenscreen.jpg'
     ];
     let loadedImages = 0;
 
@@ -81,6 +81,7 @@
         const flur1_6 = new PANOLENS.ImagePanorama('/assets/images/flur6.jpg');
         // Räume
         const computerraum= new PANOLENS.ImagePanorama('/assets/images/computerraum.jpg');
+        const computerraum2= new PANOLENS.ImagePanorama('/assets/images/computerraum2.jpg');
         const fachraum= new PANOLENS.ImagePanorama('/assets/images/fachraum.jpg');
         const greenscreen= new PANOLENS.ImagePanorama('/assets/images/greenscreen.jpg');
         const tonstudio1= new PANOLENS.ImagePanorama('/assets/images/tonstudio1.jpg');
@@ -105,7 +106,7 @@
             bibliothek1,bibliothek2,bibliothek3,bibliothek4,bibliothek5,
             flur1_1,flur1_2,flur1_3,flur1_4,flur1_5,flur1_6,
             tonstudio1,tonstudio2,
-            fachraum,computerraum,greenscreen,
+            fachraum,computerraum,computerraum2,greenscreen,
             dach1,dach2,dach3);
 
         // Ausrichtung der Kamera im Panorama
@@ -175,6 +176,11 @@
         computerraum.addEventListener('enter-fade-start', function(){
             viewer.tweenControlCenter( new THREE.Vector3(-4000, 0, 1000), 0 );
         });
+
+        computerraum2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-4000, 0, 1000), 0 );
+        });
+
         greenscreen.addEventListener('enter-fade-start', function(){
             viewer.tweenControlCenter( new THREE.Vector3(800, 0, 1000), 0 );
         });
@@ -240,7 +246,7 @@
         bibliothek3.link(aula5, new THREE.Vector3(1500, -2500, 750));
 
         flur1_2.link(flur1_1, new THREE.Vector3(-3250, -2000, 250));
-        flur1_2.link(flur1_3, new THREE.Vector3(500, -1000, 4000));
+        flur1_2.link(flur1_3, new THREE.Vector3(400, -1000, 3000));
         flur1_2.link(fachraum, new THREE.Vector3(-1500, -1000, -4000));
         flur1_2.link(dach1, new THREE.Vector3(1000, -500, 0), 500, "/assets/icons/upstairs.png"); // Downstairs
 
@@ -255,8 +261,10 @@
         dach3.link(dach2, new THREE.Vector3(-1400, -500, -1500));
 
         fachraum.link(flur1_2, new THREE.Vector3(2000, -1000, 1000));
+        computerraum2.link(flur1_2, new THREE.Vector3(-650, -1000, 1900));
 
-        flur1_3.link(flur1_2, new THREE.Vector3(-4000, -1000, 0));
+        flur1_3.link(flur1_2, new THREE.Vector3(-4000, -500, 0));
+        flur1_3.link(computerraum2, new THREE.Vector3(1200, -1000, 500));
         flur1_3.link(flur1_4, new THREE.Vector3(4000, -1000, 0));
 
         flur1_4.link(flur1_3, new THREE.Vector3(4000, -1000, 0));
@@ -267,7 +275,7 @@
         flur1_5.link(tonstudio1, new THREE.Vector3(-3500, 500, 500));
         flur1_5.link(greenscreen, new THREE.Vector3(-250, -1000, -1000));
 
-        greenscreen.link(flur1_5, new THREE.Vector3(800, -1000, 1000));
+        greenscreen.link(flur1_5, new THREE.Vector3(-4000, -1000, 1000));
 
         tonstudio1.link(flur1_5, new THREE.Vector3(1000, -1000, 1000));
         tonstudio1.link(tonstudio2, new THREE.Vector3(-2500, -250, -750));

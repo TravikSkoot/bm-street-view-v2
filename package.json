@@ -1,11 +1,11 @@
 {
   "name": "bm-street-view",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An interactive, visual representation of the bm Cologne in 360°",
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no tests specified\\\" && exit 1",
-    "start": "http-server ../../AppData/Local/Temp/Rar$DRa24032.29367.rartemp/bm-street-view-2 -o",
+    "start": "http-server ./ -o",
     "build": "webpack --mode production"
   },
   "keywords": [
