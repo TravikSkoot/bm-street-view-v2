@@ -1,0 +1,81 @@
+<!--
+
+    An interactive, visual representation of the bm Cologne in 360°
+    Copyright © 2024 Thiemo Küpper
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Grundlegende Meta-Daten -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BM 360° Rundgang</title>
+    <meta name="description" content="Eine interaktive, visuelle Darstellung des bm Köln in 360°">
+    <meta name="keywords" content="BM, 360°, Rundgang, Schule, virtuell, interaktiv, VR, WebXR, Thiemo Küpper">
+    <meta name="author" content="Thiemo Küpper">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="BM 360° Rundgang">
+    <meta property="og:description" content="Eine interaktive, visuelle Darstellung des bm Köln in 360°">
+    <meta property="og:image" content="https://schoolview.thiemomentum.de/assets/images/bm-360-logo.png">
+    <meta property="og:url" content="https://schoolview.thiemomentum.de">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BM 360° Rundgang - Thiemo Küpper">
+    <meta name="twitter:description" content="Erkunde die Schulräume des BM mit einem interaktiven 360°-Rundgang.">
+    <meta name="twitter:image" content="https://schoolview.thiemomentum.de/assets/images/bm-360-logo.png">
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://schoolview.thiemomentum.de/assets/images/bm-360-logo.png" type="image/png">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png?v=2">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest?v=2">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg?v=2" color="#07436a">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico?v=2">
+    <meta name="msapplication-TileColor" content="#07436a">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml?v=2">
+    <meta name="theme-color" content="#07436a">
+    <!-- Scripts -->
+    <script src="js/three/three.min.js"></script> <!-- Version 0.105.0 -->
+    <script src="js/panolens/panolens.min.js"></script> <!-- Version 0.10.4 -->
+    <script src="js/dat-gui/dat.gui.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+<p id="copyright"><a href="https://thiemomentum.de/" target="_blank"> © 2024 Thiemo Küpper</a></p>
+
+<div id="panorama-container"></div>
+
+<div id="loadingScreen">
+    <img id="logo" src="/assets/icons/bm-360-logo.png" alt="Logo">
+    <div id="progress"></div>
+    <p id="loadingText">Rundgang wird geladen <span>.</span><span>.</span><span>.</span></p>
+</div>
+
+</body>
+</html>
