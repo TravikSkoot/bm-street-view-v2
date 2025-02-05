@@ -1,82 +1,68 @@
-# BM Street View V2
+# BM-Street-View
 
-<img src="assets/images/bm-360-logo.png" height=250>
+<img src="assets/icons/bm-360-logo.png" height="250">
 
 ## Über das Projekt
-BM Street View V2 ist eine interaktive 360°-Webanwendung zur Erkundung von Räumen in VR. Sie bietet eine benutzerfreundliche Oberfläche mit Infopunkten, VR-Unterstützung und einer verbesserten Ladezeit, um den Nutzern ein immersives Erlebnis zu bieten.
 
-## Projektübersicht
+Das "360° bm StreetView Projekt" zielt darauf ab, eine interaktive, visuelle Darstellung unserer Schule zu schaffen. Durch die Nutzung von 360°-Fotografie ermöglichen wir es Betrachtern, virtuelle Rundgänge durch verschiedene Bereiche der Schule zu erleben. Dieses Projekt kombiniert technische Innovation mit kreativem Design, um eine einzigartige und immersive Erfahrung zu bieten.
 
-Dieses Projekt verwendet **Three.js** für die 360°-Ansicht und integriert **WebXR**, um eine VR-Navigation zu ermöglichen. Der Rundgang bietet Infopunkte mit detaillierten Informationen und verschiedene Räume, die visuell ansprechend gestaltet und leicht navigierbar sind.
+## Hier live ansehen
+Erlebe BM-Street-View live in Aktion! Besuche https://schoolview.thiemomentum.de, um einen virtuellen Rundgang durch unsere Schule in 360° zu starten.
 
-# To-Do-Liste
+## Features
 
-## Software-Entwicklung
-- [ ] Meta-Daten für SEO hinzufügen (Title, Keywords, Description)
-- [ ] Ladezeitenoptimierung durch Lazy Loading und Priorisierung
-- [ ] Benutzerfreundliche GUI entwickeln
-- [ ] VR-Ansicht mit WebXR hinzufügen
-- [ ] Infopoints mit Infotext erstellen
-- [x] Three.js-Backend für die 360°-Ansicht integrieren
-
-## Gestalterische Aufgaben
-- [ ] Splashscreen-Logo langsamer rotieren lassen
-- [ ] Logo-Design überarbeiten
-- [ ] GUI visuell gestalten
-
-## Kameratechnische Aufgaben
-- [ ] Zusätzliche Räume für die 360°-Ansicht hinzufügen
-- [ ] Kameraführung verbessern
-- [ ] Räume ansprechend inszenieren
-
-## Installation
-
-1. **Voraussetzungen**: Stelle sicher, dass Node.js und npm installiert sind.
-2. **Projekt klonen**:
-   ```bash
-   git clone https://github.com/TravikSkoot/bm-street-view-v2
-   cd bm-street-view-v2
-   ```
-3. **Abhängigkeiten installieren**:
-   ```bash
-   npm install
-   ```
-4. **Server starten**:
-   ```bash
-   npm start
-   ```
-   Die Anwendung ist nun unter `http://localhost:8080` erreichbar.
+* **360° Ansichten:** Nutze die 360°-Fotografie, um einen realistischen Eindruck unserer Schule zu vermitteln.
+* **Interaktive Navigation:** Ermögliche Benutzern, sich frei im virtuellen Raum zu bewegen und verschiedene Bereiche zu erkunden.
+* **Responsives Design:** Optimiert für verschiedene Gerätetypen und Bildschirmgrößen.
 
 ## Technologien
 
-- **Three.js**: 3D-Bibliothek für die 360°-Ansicht
-- **WebXR**: API für VR-Unterstützung
-- **JavaScript** und **HTML/CSS**: Frontend-Technologien
+* JavaScript
+* HTML
+* CSS
 
-## Mitwirkende
+## Voraussetzungen
 
-### Projektleitung und Entwicklung
-- **Thiemo Küpper** – Projektleiter und Hauptentwickler, verantwortlich für die Konzeption, die technische Umsetzung der 360°-Ansicht und die Integration von VR
+Um das Projekt lokal auszuführen, benötigst du:
 
-### Tag 1 Supporter und direkte Mitwirkende
-- **Tim Peusquens** – Unterstützt das Projekt seit der ersten Stunde als Kameramann und kreativer Ideenlieferant, der stets neue Perspektiven einbringt.
-- **Jann Lindner** – Als Kameramann und kreativer Kopf von Anfang an dabei, bereichert das Projekt mit wertvollen Ideen und gestalterischem Input.
+* Einen aktuellen Webbrowser
+* Einen lokalen Server, um die HTML-Dateien zu hosten
 
-### Besondere Danksagungen
-- **Richard Lamers** – Schulleiter, dessen Unterstützung dieses Projekt überhaupt erst möglich gemacht haben. Seine Genehmigung hat den Weg für eine erfolgreiche Umsetzung eröffnet.
+## Installation
 
-Ein besonderer Dank geht an alle Tester, die wertvolles Feedback zur Verbesserung der Nutzererfahrung beigetragen haben.
+1. Klone das Repository: `git clone https://github.com/TravikSkoot/bm-street-view.git`
+2. Öffne die HTML-Datei in deinem Webbrowser oder hoste sie auf deinem lokalen Server
+
+## Nutzung
+
+Navigiere in deinem Webbrowser zur index.html Datei des Projekts oder zur entsprechenden URL, wenn du das Projekt auf einem Server hostest. Nutze die Maus oder Touch-Eingaben, um dich in der 360°-Ansicht zu bewegen und die Schule zu erkunden.
+
+## Mitwirken
+
+Jeder Beitrag zu diesem Projekt ist willkommen. Folge diesen Schritten, um mitzuwirken:
+
+1. Forke das Repository
+2. Erstelle einen neuen Branch (`git checkout -b feature/AmazingFeature`)
+3. Führe deine Änderungen durch (`git commit -m 'Add some AmazingFeature'`)
+4. Push in den Branch (`git push origin feature/AmazingFeature`)
+5. Öffne einen Pull Request
 
 ## Lizenz
 
-Dieses Projekt steht unter der AGPL-3.0-or-later-Lizenz. Das bedeutet, dass du die Software frei nutzen, verändern und weiterverteilen kannst, solange alle Änderungen und der Quellcode öffentlich zugänglich bleiben, insbesondere wenn die Software über ein Netzwerk bereitgestellt wird.
+Dieses Projekt ist unter der AGPL-3.0-Lizenz lizenziert - siehe die [LIZENZ](LICENSE.md) Datei für Details.
 
-Weitere Informationen findest du in der [LICENSE](LICENSE.md)-Datei oder unter [GNU AGPL-3.0-or-later](https://www.gnu.org/licenses/agpl-3.0.de.html).
+# Projektfortschritt - Projektwoche des bm Köln 2024
 
----
+| Datum     | Erledigte Aufgaben                                                                                                                                                                                                                                     | Herausforderungen                                                                                                                                                            | Noch zu erledigen                                                                                                                                |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| 15.01     | - Die Einrichtung und Justierung der 360° Kamera wurde erfolgreich abgeschlossen                                                                                                                                                                       | - Die aufgenommenen Bilder zeigten eine Überbelichtung| - Es muss eine vollständige Entwicklungsumgebung eingerichtet werden                                                                             |
+| 16.01     | - Ein Großteil der 360°-Aufnahmen wurden gemacht| - Die Fotografie war durch zeitweise belegte Räume erschwert <br>- Die Findung des richtigen Frameworks gestaltete sich schwierig                                            | - Die Erstellung eines Grundgerüsts für die Darstellung der 360°-Ansichten steht noch aus                                                        |
+| 17.01     | - Die Entwicklungsumgebung wurde erfolgreich aufgesetzt <br/>- Das Basiskonzept für die 360°-Ansicht ist fertiggestellt <br/>- Der erste Informationspunkt für die Aula wurde gesetzt                                                                  | - Die Festlegung einer Standardausrichtung für jedes einzelne Panoramabild musste bewältigt werden                                                                           | - Weitere Bilder und Navigationsbuttons sind dem Projekt hinzuzufügen                                                                            |
+| 18.01     | - Die komplette Aula ist jetzt mit Hotspots/Infospots annotiert <br>- Die Standardausrichtung der Kamera bei Laden des ersten Panoramas wurde erfolgreich implementiert                                                                                | - Beim Versuch, den Namen des aktuellen Panoramas oben links in der Ecke anzuzeigen, gab es Probleme                                                                         | - Annotieren weiterer Räume durch Hinzufügen von Tags/Hotspots, um die Interaktivität und Informationsfülle des Streetview-Projekts zu erweitern |
+| 22.01     | - Bereinigung des Repositories und Entfernung unnötiger Dateien <br> - Live-Schaltung der Website: [Schoolview Projekt](https://schoolview.thiemomentum.de/) <br> - Implementierung einer Fortschrittsanzeige für visuelles Feedback während des Ladens | - Keine größeren Probleme                                                                                                                                                    | - Hinzufügen zusätzlicher Hotspots für eine interaktive Navigationsführung                                                                                                     |
+| 23.01     | - Fertigstellung aller geplanten Hotspots                                                                                                                                                                                                              | - Keine nennenswerten Probleme aufgetreten| - Bilder komprimieren für schnellere Ladezeit <br>- GUI für die verschiedenen Räume hinzufügen|
+| 24.01     | - Optimierung der Bildergröße für schnelleres Laden der Website <br> - Hinzufügen einer grafischen Benutzeroberfläche (GUI) für die Navigation zwischen Räumen/Hotspots                                                                                | - Positionierung des GUI in der oberen rechten Ecke aufgrund von Einschränkungen der dot-gui-Bibliothek | - Zukunftspläne: Erweiterung um weitere Räume, Verbesserung der Kameraführung und Inszenierung der Räume|
 
-Vielen Dank an alle Mitwirkenden, die dieses Projekt möglich gemacht haben!
-<br><br>
-<img src="assets/images/bm-360-logo.png" height=25>
-<br>
-Copyright © 2024 Thiemo Küpper
+## Kontakt
+
+Projekt-Link: [https://github.com/TravikSkoot/bm-street-view](https://github.com/TravikSkoot/bm-street-view)

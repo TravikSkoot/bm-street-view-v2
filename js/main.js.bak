@@ -1,0 +1,306 @@
+    /*
+
+    An interactive, visual representation of the bm Cologne in 360°
+    Copyright © 2024 Thiemo Küpper
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    */
+
+    window.addEventListener('load', function () {
+
+    let progressElement = document.getElementById('progress');
+
+    let imagePaths = [ // ... Füge alle Bildpfade hinzu
+        '/assets/images/aula1.jpg','/assets/images/aula2.jpg','/assets/images/aula3.jpg','/assets/images/aula4.jpg','/assets/images/aula5.jpg',
+        '/assets/images/eingang3.jpg','/assets/images/eingang2.jpg','/assets/images/eingang1.jpg',
+        '/assets/images/flur1.jpg','/assets/images/flur2.jpg','/assets/images/flur3.jpg','/assets/images/flur4.jpg','/assets/images/flur5.jpg','/assets/images/flur6.jpg',
+        '/assets/images/bibliothek1.jpg','/assets/images/bibliothek2.jpg','/assets/images/bibliothek3.jpg','/assets/images/bibliothek4.jpg','/assets/images/bibliothek5.jpg',
+        '/assets/images/dach1.jpg','/assets/images/dach2.jpg','/assets/images/dach3.jpg',
+        '/assets/images/tonstudio1.jpg','/assets/images/tonstudio2.jpg',
+        '/assets/images/fachraum.jpg','/assets/images/computerraum.jpg','/assets/images/greenscreen.jpg'
+    ];
+    let loadedImages = 0;
+
+    // Funktion zum Aktualisieren des Fortschrittsbalkens
+    function updateProgress() {
+        let progress = (loadedImages / imagePaths.length) * 100;
+        progressElement.style.width = progress + '%';
+        if (progress === 100) {
+            progressElement.classList.add('finish');
+            document.getElementById('loadingScreen').style.display = 'none'; // Verstecke die Ladeanzeige
+            initializePanoramas(); // Initialisiere die Panoramen, nachdem alle Bilder geladen sind
+        }
+    }
+
+    // Funktion zum Vorladen aller Bilder
+    imagePaths.forEach(function(path) {
+        let img = new Image();
+        img.onload = function() {
+            loadedImages++;
+            updateProgress();
+        };
+        img.src = path;
+    });
+
+    // Funktion zum Initialisieren der Panoramen
+    function initializePanoramas() {
+        // Aula
+        const aula1 = new PANOLENS.ImagePanorama('/assets/images/aula1.jpg');
+        const aula2 = new PANOLENS.ImagePanorama('/assets/images/aula2.jpg');
+        const aula3 = new PANOLENS.ImagePanorama('/assets/images/aula3.jpg');
+        const aula4 = new PANOLENS.ImagePanorama('/assets/images/aula4.jpg');
+        const aula5 = new PANOLENS.ImagePanorama('/assets/images/aula5.jpg');
+        // Eingang B Gebäude
+        const eingang3 = new PANOLENS.ImagePanorama('/assets/images/eingang3.jpg');
+        const eingang2 = new PANOLENS.ImagePanorama('/assets/images/eingang2.jpg');
+        const eingang1 = new PANOLENS.ImagePanorama('/assets/images/eingang1.jpg');
+        // Bibliothek
+        const bibliothek1 = new PANOLENS.ImagePanorama('/assets/images/bibliothek1.jpg');
+        const bibliothek2 = new PANOLENS.ImagePanorama('/assets/images/bibliothek2.jpg');
+        const bibliothek3 = new PANOLENS.ImagePanorama('/assets/images/bibliothek3.jpg');
+        const bibliothek4 = new PANOLENS.ImagePanorama('/assets/images/bibliothek4.jpg');
+        const bibliothek5 = new PANOLENS.ImagePanorama('/assets/images/bibliothek5.jpg');
+        // 1. Etage
+        const flur1_1 = new PANOLENS.ImagePanorama('/assets/images/flur1.jpg');
+        const flur1_2 = new PANOLENS.ImagePanorama('/assets/images/flur2.jpg');
+        const flur1_3 = new PANOLENS.ImagePanorama('/assets/images/flur3.jpg');
+        const flur1_4 = new PANOLENS.ImagePanorama('/assets/images/flur4.jpg');
+        const flur1_5 = new PANOLENS.ImagePanorama('/assets/images/flur5.jpg');
+        const flur1_6 = new PANOLENS.ImagePanorama('/assets/images/flur6.jpg');
+        // Räume
+        const computerraum= new PANOLENS.ImagePanorama('/assets/images/computerraum.jpg');
+        const fachraum= new PANOLENS.ImagePanorama('/assets/images/fachraum.jpg');
+        const greenscreen= new PANOLENS.ImagePanorama('/assets/images/greenscreen.jpg');
+        const tonstudio1= new PANOLENS.ImagePanorama('/assets/images/tonstudio1.jpg');
+        const tonstudio2= new PANOLENS.ImagePanorama('/assets/images/tonstudio2.jpg');
+        // Dach
+        const dach1 = new PANOLENS.ImagePanorama('/assets/images/dach1.jpg');
+        const dach2 = new PANOLENS.ImagePanorama('/assets/images/dach2.jpg');
+        const dach3 = new PANOLENS.ImagePanorama('/assets/images/dach3.jpg');
+
+        // Erstelle einen Panolens-Viewer
+        const viewer = new PANOLENS.Viewer({
+            container: document.querySelector("#panorama-container"),  // Setze den Container auf den Body für Vollbild
+            autoHideInfospot: false,   // Infospots nicht automatisch verstecken
+            autoRotate: true,          // Automatische Rotation
+            autoRotateSpeed: 0.2,     // Automatische Rotationsgeschwindigkeit
+            cameraFov: 75,             // Sichtfeld der Kamera einstellen
+            controlBar: true         // Kontrollleiste anzeigen
+        });
+        // Füge die Panoramen zum Viewer hinzu
+        viewer.add(aula1,aula2,aula3,aula4,aula5,
+            eingang3,eingang2,eingang1,
+            bibliothek1,bibliothek2,bibliothek3,bibliothek4,bibliothek5,
+            flur1_1,flur1_2,flur1_3,flur1_4,flur1_5,flur1_6,
+            tonstudio1,tonstudio2,
+            fachraum,computerraum,greenscreen,
+            dach1,dach2,dach3);
+
+        // Ausrichtung der Kamera im Panorama
+        aula1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(2500, 0, 3000), 0 );
+        });
+        aula2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(4000, 0, 500), 0 );
+        });
+        aula3.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(800, 0, -3000), 0 );
+        });
+        aula4.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(0, 0, -3500), 0 );
+        });
+        aula5.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(0, -1000, 5000), 0 );
+        });
+        eingang3.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-1000, 0, 1875), 0 );
+        });
+        eingang2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-150, 0, 3000), 0 );
+        });
+        eingang1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-3000, 0, 250), 0 );
+        });
+        bibliothek1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-1000, -500, -750), 0 );
+        });
+        bibliothek2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-2500, 0, -250), 0 );
+        });
+        bibliothek3.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(1500, -1250, 750), 0 );
+        });
+        bibliothek4.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(2000, 0, 0), 0 );
+        });
+        bibliothek5.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(1500, -1250, -1000), 0 );
+        });
+        flur1_1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(250, -500, -2000), 0 );
+        });
+        flur1_2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(750, -750, 2000), 0 );
+        });
+        flur1_3.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(4000, 0, 0), 0 );
+        });
+        flur1_4.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-4000, 0, 0), 0 );
+        });
+        flur1_5.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-3500, 0, 500), 0 );
+        });
+        flur1_6.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-4000, 0, 1500), 0 );
+        });
+        tonstudio1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-2500, 0, -750), 0 );
+        });
+        tonstudio2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(1500, 0, 0), 0 );
+        });
+        computerraum.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-4000, 0, 1000), 0 );
+        });
+        greenscreen.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(800, 0, 1000), 0 );
+        });
+        fachraum.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(2000, 0, 1000), 0 );
+        });
+        dach1.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(-250, 0, -2250), 0 );
+        });
+        dach2.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(3000, 0, -750), 0 );
+        });
+        dach3.addEventListener('enter-fade-start', function(){
+            viewer.tweenControlCenter( new THREE.Vector3(2000, 0, 1000), 0 );
+        });
+
+        // Anklickbare Infospots
+        aula1.link(aula2, new THREE.Vector3(2500, -400, 3000));
+        aula1.link(aula5, new THREE.Vector3(5000, -400, -1500));
+
+        aula2.link(aula1, new THREE.Vector3(-1750, -1000, -4000));
+        aula2.link(aula3, new THREE.Vector3(4000, -1000, 500));
+
+        aula3.link(aula2, new THREE.Vector3(-4000, -1000, 0));
+        aula3.link(aula4, new THREE.Vector3(800, -1000, -3000));
+
+        aula4.link(aula3, new THREE.Vector3(-500, -1000, 3500));
+        aula4.link(aula5, new THREE.Vector3(0, -1000, -3500));
+
+        aula5.link(aula4, new THREE.Vector3(-3500, -1000, 0));
+        aula5.link(aula1, new THREE.Vector3(-1500, -1000, -6000));
+        aula5.link(eingang3, new THREE.Vector3(0, -1000, 5000));
+        aula5.link(bibliothek3, new THREE.Vector3(-2000, 1500, -1000));
+        aula5.link(bibliothek5, new THREE.Vector3(-2000, 1500, 1000));
+
+        eingang3.link(aula5, new THREE.Vector3(-1500, -1000, -4000));
+        eingang3.link(flur1_1, new THREE.Vector3(-3000, 1000, 500));
+        eingang3.link(eingang2, new THREE.Vector3(1000, -1000, 3250));
+
+        eingang2.link(eingang3, new THREE.Vector3(0, -1000, -3250));
+        eingang2.link(eingang1, new THREE.Vector3(-150, 250, 3000));
+
+        eingang1.link(eingang2, new THREE.Vector3(-3000, -1000, 250));
+
+        flur1_1.link(eingang3, new THREE.Vector3(3000, -2000, -250));
+        flur1_1.link(flur1_2, new THREE.Vector3(3000, 650, 500));
+        flur1_1.link(bibliothek1, new THREE.Vector3(250, -500, -2000));
+
+        bibliothek1.link(flur1_1, new THREE.Vector3(2000, -500, 0));
+        bibliothek1.link(bibliothek2, new THREE.Vector3(-2000, -1000, -500));
+        bibliothek1.link(bibliothek4, new THREE.Vector3(0, -1000, -1000));
+
+        bibliothek4.link(bibliothek1, new THREE.Vector3(-1000, -1000, 0));
+        bibliothek4.link(bibliothek5, new THREE.Vector3(2000, -1000, -750));
+
+        bibliothek5.link(bibliothek4, new THREE.Vector3(-2000, -1000, 500));
+        bibliothek5.link(aula5, new THREE.Vector3(1500, -2500, -1000));
+
+        bibliothek2.link(bibliothek3, new THREE.Vector3(-2500, -500, -250));
+        bibliothek2.link(bibliothek1, new THREE.Vector3(500, -1000, -2000));
+
+        bibliothek3.link(bibliothek2, new THREE.Vector3(-2500, -500, -250));
+        bibliothek3.link(aula5, new THREE.Vector3(1500, -2500, 750));
+
+        flur1_2.link(flur1_1, new THREE.Vector3(-3250, -2000, 250));
+        flur1_2.link(flur1_3, new THREE.Vector3(500, -1000, 4000));
+        flur1_2.link(fachraum, new THREE.Vector3(-1500, -1000, -4000));
+        flur1_2.link(dach1, new THREE.Vector3(1000, -500, 0), 500, "/assets/icons/upstairs.png"); // Downstairs
+
+        dach1.link(flur1_2, new THREE.Vector3(-1400, -500, 2000), 500, "/assets/icons/downstairs.png"); // Stair Up Icon
+        dach1.link(dach2, new THREE.Vector3(-2000, -250, -2500));
+        dach1.link(dach3, new THREE.Vector3(1500, -500, -2000)); //von dach1 zu dach 3
+
+        dach2.link(dach1, new THREE.Vector3(3000, -250, 1000));
+        dach2.link(dach3, new THREE.Vector3(3000, -250, -750));
+
+        dach3.link(dach1, new THREE.Vector3(-1500, -500, -1000));
+        dach3.link(dach2, new THREE.Vector3(-1400, -500, -1500));
+
+        fachraum.link(flur1_2, new THREE.Vector3(2000, -1000, 1000));
+
+        flur1_3.link(flur1_2, new THREE.Vector3(-4000, -1000, 0));
+        flur1_3.link(flur1_4, new THREE.Vector3(4000, -1000, 0));
+
+        flur1_4.link(flur1_3, new THREE.Vector3(4000, -1000, 0));
+        flur1_4.link(flur1_5, new THREE.Vector3(-4000, -1000, 0));
+
+        flur1_5.link(flur1_4, new THREE.Vector3(1000, -1000, 4000));
+        flur1_5.link(flur1_6, new THREE.Vector3(-3500, -2000, 500));
+        flur1_5.link(tonstudio1, new THREE.Vector3(-3500, 500, 500));
+        flur1_5.link(greenscreen, new THREE.Vector3(-250, -1000, -1000));
+
+        greenscreen.link(flur1_5, new THREE.Vector3(800, -1000, 1000));
+
+        tonstudio1.link(flur1_5, new THREE.Vector3(1000, -1000, 1000));
+        tonstudio1.link(tonstudio2, new THREE.Vector3(-2500, -250, -750));
+
+        tonstudio2.link(tonstudio1, new THREE.Vector3(1500, -250, 0));
+
+        flur1_6.link(flur1_5, new THREE.Vector3(-500, 200, -4000));
+        flur1_6.link(computerraum, new THREE.Vector3(-4000, -1000, 1500));
+
+        computerraum.link(flur1_6, new THREE.Vector3(-4000, -1000, 1000));
+
+        // GUI zum Navigieren
+        document.getElementById('tile-aula').addEventListener('click', function() {
+            viewer.setPanorama(aula1); // Panorama für die Aula setzen
+        });
+
+        document.getElementById('tile-bibliothek').addEventListener('click', function() {
+            viewer.setPanorama(bibliothek1); // Panorama für die Bibliothek setzen
+        });
+        document.getElementById('tile-computerraum').addEventListener('click', function() {
+            viewer.setPanorama(computerraum); // Panorama für die Aula setzen
+        });
+
+        document.getElementById('tile-dach').addEventListener('click', function() {
+            viewer.setPanorama(dach1); // Panorama für die Bibliothek setzen
+        });
+        document.getElementById('tile-eingang').addEventListener('click', function() {
+            viewer.setPanorama(eingang1); // Panorama für die Aula setzen
+        });
+
+        document.getElementById('tile-tonstudio').addEventListener('click', function() {
+            viewer.setPanorama(tonstudio1); // Panorama für die Bibliothek setzen
+        });
+
+    }
+});

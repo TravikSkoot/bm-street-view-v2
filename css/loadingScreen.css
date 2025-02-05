@@ -1,0 +1,101 @@
+/*
+
+    An interactive, visual representation of the bm Cologne in 360°
+    Copyright © 2024 Thiemo Küpper
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+*/
+
+#progress {
+    width: 0;
+    height: 1%;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(to right,
+    #ed1439 0%, #ed1439 33.33%,
+    #e69425 33.33%, #e69425 66.66%,
+    #56ae41 66.66%, #56ae41 100%);
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease-in;
+}
+#progress.finish {
+    opacity: 0;
+}
+#loadingScreen {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 67, 106, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+#loadingText {
+    margin-top: 20px;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+#loadingText span {
+    opacity: 0;
+    animation: fadeInOut 1.5s infinite;
+}
+
+#loadingText span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#loadingText span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+#loadingText span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+#logo {
+    width: 10vh;
+    height: auto;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1.75s forwards infinite;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 650px) {
+    #loadingText {
+        font-size: 4vh;
+    }
+
+    #logo {
+        width: 10vh;
+    }
+}
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

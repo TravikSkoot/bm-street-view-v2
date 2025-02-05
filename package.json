@@ -1,34 +1,39 @@
 {
-  "name": "bm-street-view-v2",
+  "name": "bm-street-view",
   "version": "1.0.0",
-  "description": "Ein interaktiver 360°-Rundgang durch die Schulräume, mit VR-Unterstützung und informativen Infopoints.",
-  "main": "src/index.js",
+  "description": "An interactive, visual representation of the bm Cologne in 360°",
+  "main": "index.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"start": "http-server ./ -c-1"
-  },
-  "repository": {
-	"type": "git",
-	"url": "git+https://github.com/TravikSkoot/bm-street-view-v2.git"
+    "test": "echo \\\"Error: no tests specified\\\" && exit 1",
+    "start": "http-server ../../AppData/Local/Temp/Rar$DRa24032.29367.rartemp/bm-street-view-2 -o",
+    "build": "webpack --mode production"
   },
   "keywords": [
-	"360-view",
-	"threejs",
-	"VR",
-	"school",
-	"interactive",
-	"bm-street-view"
+    "bm",
+    "köln"
   ],
   "author": "Thiemo Küpper",
   "license": "AGPL-3.0-or-later",
-  "bugs": {
-	"url": "https://github.com/TravikSkoot/bm-street-view-v2/issues"
-  },
-  "homepage": "https://github.com/TravikSkoot/bm-street-view-v2#readme",
   "dependencies": {
-	"three": "^0.169.0"
+    "panolens": "^0.10.4",
+    "three": "^0.160.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravikSkoot/bm-street-view.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TravikSkoot/bm-street-view/issues"
+  },
+  "homepage": "https://github.com/TravikSkoot/bm-street-view#readme",
   "devDependencies": {
-	"http-server": "^14.1.1"
+    "css-loader": "^6.9.1",
+    "dat.gui": "^0.7.9",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "http-server": "^14.1.1",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
